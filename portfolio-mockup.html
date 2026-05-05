@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sofia Navarro — Writer, Translator, Artist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:       #F4EFE4;
+    --cream-mid:   #EDE5D5;
+    --ink:         #1A1714;
+    --ink-soft:    #2E2A26;
+    --warm-gray:   #7A726A;
+    --warm-muted:  #B0A89E;
+    --accent:      #B85C38;
+    --accent-dim:  #8A4028;
+    --border:      rgba(26,23,20,0.10);
+    --border-med:  rgba(26,23,20,0.16);
+    --serif:       'Cormorant Garamond', Georgia, serif;
+    --sans:        'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Grain ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .45;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  }
+
+  /* ─────────────── NAV ─────────────── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: .02em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--warm-gray);
+    text-decoration: none;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ─────────────── HERO ─────────────── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    min-height: 88vh;
+    padding: 5rem 3rem 4rem;
+    border-bottom: 1px solid var(--border);
+    gap: 2rem;
+  }
+  .hero-left { display: flex; flex-direction: column; justify-content: flex-end; }
+  .hero-eyebrow {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: 96px;
+    font-weight: 300;
+    line-height: .92;
+    letter-spacing: -.01em;
+    margin-bottom: 2.5rem;
+  }
+  .hero-name em { font-style: italic; display: block; }
+  .hero-tagline {
+    font-size: 15px;
+    color: var(--warm-gray);
+    max-width: 360px;
+    line-height: 1.9;
+    padding-left: 1.25rem;
+    border-left: 1.5px solid var(--accent);
+  }
+  .hero-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .hero-portrait {
+    width: min(360px, 100%);
+    aspect-ratio: 4/5;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .hero-portrait svg { width: 100%; height: 100%; display: block; }
+
+  /* ─────────────── SHARED SECTION ─────────────── */
+  section { padding: 5rem 3rem; border-bottom: 1px solid var(--border); }
+
+  .sec-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: .6rem;
+  }
+  .sec-num {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .sec-rule { flex: 0 0 36px; height: 1px; background: var(--border-med); }
+  .sec-title {
+    font-family: var(--serif);
+    font-size: 38px;
+    font-weight: 400;
+    margin-bottom: 3rem;
+  }
+
+  /* ─────────────── ABOUT ─────────────── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-img-wrap { display: flex; flex-direction: column; gap: .75rem; }
+  .about-img {
+    width: 100%;
+    aspect-ratio: 3/4;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .about-img svg { width: 100%; height: 100%; display: block; }
+  .about-img-caption {
+    font-size: 11px;
+    color: var(--warm-muted);
+    letter-spacing: .05em;
+    text-align: center;
+    font-style: italic;
+  }
+  .about-lead {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  .about-body {
+    font-size: 15px;
+    line-height: 1.95;
+    color: var(--warm-gray);
+    margin-bottom: 1.1rem;
+  }
+  .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2rem; }
+  .pill {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 99px;
+    border: 1px solid var(--border-med);
+    color: var(--warm-gray);
+  }
+
+  /* ─────────────── WRITING ─────────────── */
+  .essay-list { display: flex; flex-direction: column; }
+  .essay-row {
+    display: grid;
+    grid-template-columns: 130px 1fr auto;
+    align-items: baseline;
+    gap: 1.5rem 2rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left .25s ease;
+    cursor: default;
+  }
+  .essay-row:first-child { border-top: 1px solid var(--border); }
+  .essay-row:hover { padding-left: .5rem; }
+  .essay-pub {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .essay-title {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: .2rem;
+    line-height: 1.2;
+  }
+  .essay-desc {
+    font-size: 13px;
+    color: var(--warm-muted);
+    line-height: 1.6;
+  }
+  .essay-year {
+    font-size: 12px;
+    color: var(--warm-muted);
+    white-space: nowrap;
+  }
+
+  /* ─────────────── BOOKS ─────────────── */
+  .books-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .book-card { display: flex; flex-direction: column; }
+  .book-cover {
+    aspect-ratio: 2/3;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    box-shadow: 4px 5px 16px rgba(26,23,20,.14), 1px 1px 0 rgba(26,23,20,.07);
+  }
+  .book-cover svg { width: 100%; height: 100%; display: block; }
+  .book-title {
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.3;
+    margin-bottom: .25rem;
+  }
+  .book-author { font-size: 12px; color: var(--warm-gray); margin-bottom: 3px; }
+  .book-role {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+  }
+
+  /* ─────────────── PERFORMANCE ─────────────── */
+  .perf-intro {
+    font-size: 15px;
+    color: var(--warm-gray);
+    max-width: 520px;
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+  }
+  .perf-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+  }
+  .perf-cell {
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+  .perf-cell svg { width: 100%; height: 100%; display: block; }
+  .perf-cap {
+    position: absolute;
+    bottom: .65rem; left: .75rem;
+    font-size: 10px;
+    color: rgba(255,255,255,.45);
+    letter-spacing: .06em;
+    font-style: italic;
+  }
+
+  /* ─────────────── CONTACT ─────────────── */
+  .contact-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 2rem 0;
+  }
+  .contact-heading {
+    font-family: var(--serif);
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 1.05;
+    font-style: italic;
+  }
+  .contact-links { display: flex; flex-direction: column; align-items: flex-end; gap: .85rem; }
+  .contact-link {
+    font-size: 14px;
+    color: var(--warm-gray);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .contact-link:hover { color: var(--ink); }
+  .contact-cta {
+    margin-top: .25rem;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    padding-top: .85rem;
+    border-top: 1px solid var(--border-med);
+    width: 100%;
+    text-align: right;
+    transition: color .2s;
+  }
+  .contact-cta:hover { color: var(--accent-dim); }
+
+  /* ─────────────── FOOTER ─────────────── */
+  footer {
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--warm-muted);
+    letter-spacing: .04em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════════════════════════ -->
+<nav>
+  <span class="nav-name">Sofia Navarro</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#writing">Writing</a></li>
+    <li><a href="#translations">Translations</a></li>
+    <li><a href="#performance">Performance</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ═════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Writer · Translator · Artist</p>
+    <h1 class="hero-name">Sofia<br><em>Navarro</em></h1>
+    <p class="hero-tagline">Essays on language, body, and memory. Literary translations from French and Portuguese. Performance work tracing the space between text and presence.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-portrait">
+      <svg viewBox="0 0 360 450" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <!-- deep warm field -->
+        <rect width="360" height="450" fill="#241C15"/>
+        <!-- ambient warm wash -->
+        <radialGradient id="hg1" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#7A3B18" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#241C15" stop-opacity="0"/>
+        </radialGradient>
+        <rect width="360" height="450" fill="url(#hg1)"/>
+        <!-- second warm pool lower -->
+        <radialGradient id="hg2" cx="40%" cy="75%" r="45%">
+          <stop offset="0%" stop-color="#5A2A10" stop-opacity=".4"/>
+          <stop offset="100%" stop-color="#241C15" stop-opacity="0"/>
+        </radialGradient>
+        <rect width="360" height="450" fill="url(#hg2)"/>
+        <!-- head / face suggestion -->
+        <ellipse cx="180" cy="158" rx="68" ry="80" fill="#A85A28" opacity=".18"/>
+        <ellipse cx="180" cy="152" rx="52" ry="62" fill="#C47840" opacity=".15"/>
+        <!-- neck / shoulder suggestion -->
+        <ellipse cx="180" cy="310" rx="110" ry="130" fill="#7A3B18" opacity=".18"/>
+        <!-- fine arc — jawline hint -->
+        <path d="M135,190 Q180,215 225,190" fill="none" stroke="#D4956A" stroke-width=".75" opacity=".25"/>
+        <!-- hair mass top -->
+        <ellipse cx="180" cy="95" rx="78" ry="50" fill="#3A1E0E" opacity=".6"/>
+        <!-- high-key catchlight -->
+        <ellipse cx="172" cy="138" rx="5" ry="6" fill="#F0C890" opacity=".2"/>
+        <ellipse cx="186" cy="137" rx="4" ry="5" fill="#F0C890" opacity=".15"/>
+        <!-- faint horizontal light band -->
+        <rect x="0" y="120" width="360" height="60" fill="#C47840" opacity=".04"/>
+        <!-- edge vignette -->
+        <radialGradient id="vig" cx="50%" cy="50%" r="70%">
+          <stop offset="60%" stop-color="#241C15" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0E0B08" stop-opacity=".7"/>
+        </radialGradient>
+        <rect width="360" height="450" fill="url(#vig)"/>
+        <!-- label -->
+        <text x="180" y="437" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="9" fill="#7A5A45" letter-spacing="3">photograph</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ABOUT ════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="sec-eyebrow"><span class="sec-num">§ 01 — About</span><div class="sec-rule"></div></div>
+  <h2 class="sec-title">A little about me</h2>
+  <div class="about-grid">
+    <div class="about-img-wrap">
+      <div class="about-img">
+        <svg viewBox="0 0 240 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <rect width="240" height="320" fill="#2E2218"/>
+          <radialGradient id="ag1" cx="48%" cy="42%" r="55%">
+            <stop offset="0%" stop-color="#8A4A20" stop-opacity=".5"/>
+            <stop offset="100%" stop-color="#2E2218" stop-opacity="0"/>
+          </radialGradient>
+          <rect width="240" height="320" fill="url(#ag1)"/>
+          <!-- seated figure suggestion -->
+          <ellipse cx="120" cy="118" rx="48" ry="56" fill="#A06028" opacity=".2"/>
+          <ellipse cx="120" cy="112" rx="36" ry="44" fill="#C4803A" opacity=".16"/>
+          <ellipse cx="120" cy="240" rx="80" ry="90" fill="#5A2E14" opacity=".22"/>
+          <!-- collar / neckline -->
+          <path d="M95,175 Q120,188 145,175" fill="none" stroke="#D49870" stroke-width=".7" opacity=".28"/>
+          <!-- hair top -->
+          <ellipse cx="120" cy="72" rx="55" ry="38" fill="#1E1208" opacity=".7"/>
+          <!-- faint lines like fabric -->
+          <line x1="60" y1="200" x2="80" y2="290" stroke="#7A4520" stroke-width=".4" opacity=".2"/>
+          <line x1="160" y1="205" x2="148" y2="295" stroke="#7A4520" stroke-width=".4" opacity=".15"/>
+          <radialGradient id="av" cx="50%" cy="50%" r="70%">
+            <stop offset="65%" stop-color="#2E2218" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#0E0A06" stop-opacity=".65"/>
+          </radialGradient>
+          <rect width="240" height="320" fill="url(#av)"/>
+          <text x="120" y="310" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="8" fill="#7A5A42" letter-spacing="2">portrait</text>
+        </svg>
+      </div>
+      <p class="about-img-caption">Madrid, 2024</p>
+    </div>
+    <div>
+      <p class="about-lead">I live between languages — drawn to the edges of things, to what cannot quite be said in one tongue alone.</p>
+      <p class="about-body">My essays move through cultural identity, translation theory, and the way bodies hold memory across time and displacement. I've written for literary journals across Europe and Latin America, in Spanish, English, and French.</p>
+      <p class="about-body">My translation work bridges French and Portuguese into Spanish and English, with a focus on contemporary literary fiction and critical essays. I also work as a book editor, collaborating closely with authors on voice, structure, and form.</p>
+      <p class="about-body">In parallel, I maintain a practice in movement and visual work: contemporary dance and modeling as a way of thinking through the body what the page cannot always hold.</p>
+      <div class="pill-row">
+        <span class="pill">Literary essays</span>
+        <span class="pill">Cultural criticism</span>
+        <span class="pill">French → English</span>
+        <span class="pill">Portuguese → Spanish</span>
+        <span class="pill">Book editing</span>
+        <span class="pill">Contemporary dance</span>
+        <span class="pill">Modeling</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WRITING ══════════════════════════════════════════════════ -->
+<section id="writing">
+  <div class="sec-eyebrow"><span class="sec-num">§ 02 — Writing</span><div class="sec-rule"></div></div>
+  <h2 class="sec-title">Essays & Articles</h2>
+  <div class="essay-list">
+    <div class="essay-row">
+      <span class="essay-pub">Granta</span>
+      <div><p class="essay-title">The Silence Between Languages</p><p class="essay-desc">On the voids that live inside translation — what survives the crossing, and what cannot.</p></div>
+      <span class="essay-year">2024</span>
+    </div>
+    <div class="essay-row">
+      <span class="essay-pub">The White Review</span>
+      <div><p class="essay-title">On Being a Body in Someone Else's Story</p><p class="essay-desc">A meditation on modeling, gaze, and authorship of the self.</p></div>
+      <span class="essay-year">2023</span>
+    </div>
+    <div class="essay-row">
+      <span class="essay-pub">Self-published</span>
+      <div><p class="essay-title">Fever Notes: A Journal of Becoming</p><p class="essay-desc">A series of personal essays written during six months of dislocation and return.</p></div>
+      <span class="essay-year">2023</span>
+    </div>
+    <div class="essay-row">
+      <span class="essay-pub">The Kenyon Review</span>
+      <div><p class="essay-title">What We Carry Across</p><p class="essay-desc">On fidelity, loss, and the ethics of translation as an act of care.</p></div>
+      <span class="essay-year">2022</span>
+    </div>
+    <div class="essay-row">
+      <span class="essay-pub">Letras Libres</span>
+      <div><p class="essay-title">Notas sobre el Exilio Interior</p><p class="essay-desc">Una exploración del extrañamiento como condición creativa y política.</p></div>
+      <span class="essay-year">2021</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRANSLATIONS ═════════════════════════════════════════════ -->
+<section id="translations">
+  <div class="sec-eyebrow"><span class="sec-num">§ 03 — Translations & Editions</span><div class="sec-rule"></div></div>
+  <h2 class="sec-title">Books & Editions</h2>
+  <div class="books-grid">
+
+    <!-- Book 1 — navy, concentric rings -->
+    <div class="book-card">
+      <div class="book-cover">
+        <svg viewBox="0 0 140 210" xmlns="http://www.w3.org/2000/svg">
+          <rect width="140" height="210" fill="#182F45"/>
+          <rect x="0" y="0" width="7" height="210" fill="#111F2E"/>
+          <circle cx="70" cy="92" r="54" fill="none" stroke="#3A7AA0" stroke-width=".75" opacity=".55"/>
+          <circle cx="70" cy="92" r="40" fill="none" stroke="#3A7AA0" stroke-width=".5" opacity=".45"/>
+          <circle cx="70" cy="92" r="27" fill="none" stroke="#5A9ABA" stroke-width=".5" opacity=".38"/>
+          <circle cx="70" cy="92" r="14" fill="none" stroke="#5A9ABA" stroke-width=".5" opacity=".3"/>
+          <circle cx="70" cy="92" r="4" fill="#5A9ABA" opacity=".3"/>
+          <line x1="16" y1="162" x2="124" y2="162" stroke="#3A7AA0" stroke-width=".5" opacity=".35"/>
+          <text x="70" y="177" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="8.5" fill="#8ABDD4" opacity=".9">L'Origine des Larmes</text>
+          <text x="70" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#4A8AAA" opacity=".75">Jean-Paul Dubois</text>
+        </svg>
+      </div>
+      <p class="book-title">L'Origine des Larmes</p>
+      <p class="book-author">Jean-Paul Dubois</p>
+      <p class="book-role">Translator · French → English</p>
+    </div>
+
+    <!-- Book 2 — deep rose, vertical bars -->
+    <div class="book-card">
+      <div class="book-cover">
+        <svg viewBox="0 0 140 210" xmlns="http://www.w3.org/2000/svg">
+          <rect width="140" height="210" fill="#38181E"/>
+          <rect x="0" y="0" width="7" height="210" fill="#260E13"/>
+          <g stroke="#8A3A4A" opacity=".35" stroke-width=".5">
+            <line x1="20" y1="10" x2="20" y2="200"/>
+            <line x1="32" y1="10" x2="32" y2="200"/>
+            <line x1="44" y1="10" x2="44" y2="200"/>
+          </g>
+          <rect x="55" y="40" width="72" height="120" fill="#5A2030" opacity=".5"/>
+          <!-- Rotated text in the rectangle -->
+          <text x="91" y="100" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="12" fill="#C4758A" opacity=".8" transform="rotate(-90,91,100)">A Noite</text>
+          <line x1="16" y1="165" x2="124" y2="165" stroke="#8A3A4A" stroke-width=".5" opacity=".35"/>
+          <text x="70" y="180" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="8" fill="#C4758A" opacity=".9">A Noite dos Cem Dias</text>
+          <text x="70" y="195" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#8A3A4A" opacity=".75">Bessa-Luís</text>
+        </svg>
+      </div>
+      <p class="book-title">A Noite dos Cem Dias</p>
+      <p class="book-author">Agustina Bessa-Luís</p>
+      <p class="book-role">Translator · Portuguese → Spanish</p>
+    </div>
+
+    <!-- Book 3 — warm amber, abstract flames -->
+    <div class="book-card">
+      <div class="book-cover">
+        <svg viewBox="0 0 140 210" xmlns="http://www.w3.org/2000/svg">
+          <rect width="140" height="210" fill="#281A08"/>
+          <rect x="0" y="0" width="7" height="210" fill="#1C1005"/>
+          <radialGradient id="fg" cx="50%" cy="50%" r="60%">
+            <stop offset="0%" stop-color="#D08A28" stop-opacity=".25"/>
+            <stop offset="100%" stop-color="#281A08" stop-opacity="0"/>
+          </radialGradient>
+          <rect width="140" height="210" fill="url(#fg)"/>
+          <!-- flame shapes -->
+          <ellipse cx="70" cy="98" rx="28" ry="48" fill="#9A5A18" opacity=".28"/>
+          <ellipse cx="70" cy="82" rx="18" ry="36" fill="#C47C28" opacity=".22"/>
+          <ellipse cx="70" cy="66" rx="10" ry="24" fill="#E8A848" opacity=".18"/>
+          <!-- sparks -->
+          <circle cx="44" cy="58" r="1.2" fill="#D08A28" opacity=".4"/>
+          <circle cx="98" cy="72" r="1" fill="#D08A28" opacity=".35"/>
+          <circle cx="58" cy="42" r=".8" fill="#E8A848" opacity=".35"/>
+          <circle cx="88" cy="48" r="1" fill="#E8A848" opacity=".3"/>
+          <circle cx="32" cy="100" r=".8" fill="#C47C28" opacity=".25"/>
+          <line x1="16" y1="162" x2="124" y2="162" stroke="#C47C28" stroke-width=".5" opacity=".35"/>
+          <text x="70" y="177" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="8.5" fill="#E8B870" opacity=".9">Archive of Small Fires</text>
+          <text x="70" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#C47C28" opacity=".75">Various Authors · Editor</text>
+        </svg>
+      </div>
+      <p class="book-title">Archive of Small Fires</p>
+      <p class="book-author">Various Authors</p>
+      <p class="book-role">Editor · Anthology</p>
+    </div>
+
+    <!-- Book 4 — forest green, dot grid -->
+    <div class="book-card">
+      <div class="book-cover">
+        <svg viewBox="0 0 140 210" xmlns="http://www.w3.org/2000/svg">
+          <rect width="140" height="210" fill="#162218"/>
+          <rect x="0" y="0" width="7" height="210" fill="#0E1810"/>
+          <!-- dot matrix -->
+          <g fill="#4A8A58" opacity=".2">
+            <circle cx="22" cy="22" r="1.3"/><circle cx="38" cy="22" r="1.3"/><circle cx="54" cy="22" r="1.3"/><circle cx="70" cy="22" r="1.3"/><circle cx="86" cy="22" r="1.3"/><circle cx="102" cy="22" r="1.3"/><circle cx="118" cy="22" r="1.3"/>
+            <circle cx="22" cy="40" r="1.3"/><circle cx="38" cy="40" r="1.3"/><circle cx="54" cy="40" r="1.3"/><circle cx="70" cy="40" r="1.3"/><circle cx="86" cy="40" r="1.3"/><circle cx="102" cy="40" r="1.3"/><circle cx="118" cy="40" r="1.3"/>
+            <circle cx="22" cy="58" r="1.3"/><circle cx="38" cy="58" r="1.3"/><circle cx="54" cy="58" r="1.3"/><circle cx="70" cy="58" r="1.3"/><circle cx="86" cy="58" r="1.3"/><circle cx="102" cy="58" r="1.3"/><circle cx="118" cy="58" r="1.3"/>
+            <circle cx="22" cy="76" r="1.3"/><circle cx="38" cy="76" r="1.3"/><circle cx="54" cy="76" r="1.3"/><circle cx="70" cy="76" r="1.3"/><circle cx="86" cy="76" r="1.3"/><circle cx="102" cy="76" r="1.3"/><circle cx="118" cy="76" r="1.3"/>
+            <circle cx="22" cy="94" r="1.3"/><circle cx="38" cy="94" r="1.3"/><circle cx="54" cy="94" r="1.3"/><circle cx="70" cy="94" r="1.3"/><circle cx="86" cy="94" r="1.3"/><circle cx="102" cy="94" r="1.3"/><circle cx="118" cy="94" r="1.3"/>
+            <circle cx="22" cy="112" r="1.3"/><circle cx="38" cy="112" r="1.3"/><circle cx="54" cy="112" r="1.3"/><circle cx="70" cy="112" r="1.3"/><circle cx="86" cy="112" r="1.3"/><circle cx="102" cy="112" r="1.3"/><circle cx="118" cy="112" r="1.3"/>
+            <circle cx="22" cy="130" r="1.3"/><circle cx="38" cy="130" r="1.3"/><circle cx="54" cy="130" r="1.3"/><circle cx="70" cy="130" r="1.3"/><circle cx="86" cy="130" r="1.3"/><circle cx="102" cy="130" r="1.3"/><circle cx="118" cy="130" r="1.3"/>
+          </g>
+          <rect x="18" y="52" width="104" height="68" fill="#224030" opacity=".6"/>
+          <text x="70" y="90" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#7AC890">Cartas desde</text>
+          <text x="70" y="104" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#7AC890">el Silencio</text>
+          <line x1="16" y1="162" x2="124" y2="162" stroke="#4A8A58" stroke-width=".5" opacity=".35"/>
+          <text x="70" y="177" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="8.5" fill="#7AC890" opacity=".9">Cartas desde el Silencio</text>
+          <text x="70" y="192" text-anchor="middle" font-family="Georgia,serif" font-size="7" fill="#4A8A58" opacity=".75">Aponte Alsina · Ed. &amp; Tr.</text>
+        </svg>
+      </div>
+      <p class="book-title">Cartas desde el Silencio</p>
+      <p class="book-author">Marta Aponte Alsina</p>
+      <p class="book-role">Editor & Translator</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ PERFORMANCE ══════════════════════════════════════════════ -->
+<section id="performance">
+  <div class="sec-eyebrow"><span class="sec-num">§ 04 — Performance</span><div class="sec-rule"></div></div>
+  <h2 class="sec-title">Movement & Presence</h2>
+  <p class="perf-intro">A parallel practice in contemporary dance and editorial work — exploring rhythm, composition, and the body as a site of meaning. Selected collaborations, 2020–2024.</p>
+  <div class="perf-grid">
+
+    <!-- 1. Wide landscape — sweeping motion -->
+    <div class="perf-cell" style="grid-column:span 2; aspect-ratio:16/8;">
+      <svg viewBox="0 0 480 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="480" height="240" fill="#181210"/>
+        <radialGradient id="p1g" cx="38%" cy="55%" r="55%">
+          <stop offset="0%" stop-color="#7A3818" stop-opacity=".6"/>
+          <stop offset="100%" stop-color="#181210" stop-opacity="0"/>
+        </radialGradient>
+        <rect width="480" height="240" fill="url(#p1g)"/>
+        <!-- motion arcs -->
+        <path d="M60,200 Q140,60 240,120 Q340,180 420,50" fill="none" stroke="#C47040" stroke-width="1.5" opacity=".45"/>
+        <path d="M60,210 Q150,75 255,130 Q355,185 430,55" fill="none" stroke="#E8A060" stroke-width=".75" opacity=".22"/>
+        <path d="M40,195 Q130,80 220,115 Q320,150 410,45" fill="none" stroke="#E8A060" stroke-width=".5" opacity=".14"/>
+        <!-- figure mass -->
+        <ellipse cx="200" cy="130" rx="55" ry="80" fill="#8A4020" opacity=".15"/>
+        <ellipse cx="200" cy="110" rx="28" ry="42" fill="#C47040" opacity=".1"/>
+        <!-- vignette -->
+        <radialGradient id="pv1" cx="50%" cy="50%" r="75%">
+          <stop offset="60%" stop-color="#181210" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#080604" stop-opacity=".75"/>
+        </radialGradient>
+        <rect width="480" height="240" fill="url(#pv1)"/>
+      </svg>
+      <span class="perf-cap">Contemporary dance performance, Barcelona 2024</span>
+    </div>
+
+    <!-- 2. Tall portrait — figure in stillness -->
+    <div class="perf-cell" style="aspect-ratio:3/5;">
+      <svg viewBox="0 0 180 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="180" height="300" fill="#1C1510"/>
+        <radialGradient id="p2g" cx="50%" cy="38%" r="50%">
+          <stop offset="0%" stop-color="#8A4A1E" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#1C1510" stop-opacity="0"/>
+        </radialGradient>
+        <rect width="180" height="300" fill="url(#p2g)"/>
+        <ellipse cx="90" cy="98" rx="42" ry="52" fill="#A05A28" opacity=".22"/>
+        <ellipse cx="90" cy="92" rx="30" ry="38" fill="#C4783A" opacity=".18"/>
+        <ellipse cx="90" cy="220" rx="65" ry="90" fill="#5A2E14" opacity=".22"/>
+        <line x1="90" y1="8" x2="90" y2="292" stroke="#C07040" stroke-width=".4" opacity=".18"/>
+        <ellipse cx="90" cy="90" rx="32" ry="40" fill="none" stroke="#D49870" stroke-width=".65" opacity=".3"/>
+        <!-- hair -->
+        <ellipse cx="90" cy="58" rx="48" ry="32" fill="#120C08" opacity=".75"/>
+        <radialGradient id="pv2" cx="50%" cy="50%" r="65%">
+          <stop offset="60%" stop-color="#1C1510" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0A0806" stop-opacity=".7"/>
+        </radialGradient>
+        <rect width="180" height="300" fill="url(#pv2)"/>
+      </svg>
+      <span class="perf-cap">Editorial shoot, 2023</span>
+    </div>
+
+    <!-- 3. Portrait — abstract study -->
+    <div class="perf-cell" style="aspect-ratio:3/5;">
+      <svg viewBox="0 0 180 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="180" height="300" fill="#1A1918"/>
+        <!-- concentric ellipses — body as resonance -->
+        <ellipse cx="90" cy="150" rx="75" ry="110" fill="none" stroke="#5A5450" stroke-width=".65" opacity=".35"/>
+        <ellipse cx="90" cy="150" rx="58" ry="86" fill="none" stroke="#5A5450" stroke-width=".5" opacity=".28"/>
+        <ellipse cx="90" cy="150" rx="40" ry="60" fill="none" stroke="#6A6460" stroke-width=".5" opacity=".22"/>
+        <ellipse cx="90" cy="150" rx="24" ry="36" fill="none" stroke="#7A7470" stroke-width=".5" opacity=".18"/>
+        <ellipse cx="90" cy="150" rx="10" ry="15" fill="#5A5450" opacity=".35"/>
+        <!-- warm accent point -->
+        <ellipse cx="90" cy="140" rx="6" ry="8" fill="#C09060" opacity=".18"/>
+        <radialGradient id="pv3" cx="50%" cy="50%" r="65%">
+          <stop offset="65%" stop-color="#1A1918" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#0A0908" stop-opacity=".65"/>
+        </radialGradient>
+        <rect width="180" height="300" fill="url(#pv3)"/>
+      </svg>
+      <span class="perf-cap">Movement study, 2023</span>
+    </div>
+
+    <!-- 4. Wide landscape — stage/theatrical -->
+    <div class="perf-cell" style="grid-column:span 2; aspect-ratio:16/7;">
+      <svg viewBox="0 0 480 210" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <rect width="480" height="210" fill="#12100E"/>
+        <!-- stage light beam from above -->
+        <radialGradient id="sl" cx="50%" cy="0%" r="80%">
+          <stop offset="0%" stop-color="#E8B060" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#12100E" stop-opacity="0"/>
+        </radialGradient>
+        <rect width="480" height="210" fill="url(#sl)"/>
+        <!-- warm pool on stage floor -->
+        <ellipse cx="240" cy="185" rx="100" ry="25" fill="#8A5018" opacity=".2"/>
+        <!-- vertical lines — curtains / legs -->
+        <line x1="80" y1="0" x2="80" y2="210" stroke="#3A2A18" stroke-width=".5" opacity=".45"/>
+        <line x1="120" y1="0" x2="120" y2="210" stroke="#3A2A18" stroke-width=".3" opacity=".3"/>
+        <line x1="360" y1="0" x2="360" y2="210" stroke="#3A2A18" stroke-width=".5" opacity=".45"/>
+        <line x1="400" y1="0" x2="400" y2="210" stroke="#3A2A18" stroke-width=".3" opacity=".3"/>
+        <!-- figure silhouette centre stage -->
+        <ellipse cx="240" cy="140" rx="18" ry="46" fill="#5A3010" opacity=".35"/>
+        <ellipse cx="240" cy="108" rx="12" ry="16" fill="#7A4820" opacity=".3"/>
+        <radialGradient id="pv4" cx="50%" cy="50%" r="70%">
+          <stop offset="60%" stop-color="#12100E" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#060504" stop-opacity=".75"/>
+        </radialGradient>
+        <rect width="480" height="210" fill="url(#pv4)"/>
+      </svg>
+      <span class="perf-cap">Sala Beckett, Barcelona 2022</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CONTACT ══════════════════════════════════════════════════ -->
+<section id="contact" style="padding-bottom:3rem;">
+  <div class="sec-eyebrow"><span class="sec-num">§ 05 — Contact</span><div class="sec-rule"></div></div>
+  <div class="contact-inner">
+    <h2 class="contact-heading">Let's be<br>in touch.</h2>
+    <div class="contact-links">
+      <a href="mailto:sofia@domain.com" class="contact-link">sofia@domain.com</a>
+      <a href="#" class="contact-link">@sofianavarro</a>
+      <a href="#" class="contact-link">LinkedIn</a>
+      <a href="#" class="contact-cta">Download CV ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════════════════ -->
+<footer>
+  <span>Sofia Navarro — 2025</span>
+  <span>All rights reserved</span>
+</footer>
+
+</body>
+</html>
