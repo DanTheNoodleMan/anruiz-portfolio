@@ -155,8 +155,104 @@ export interface Poem {
 }
 
 export const poems: Poem[] = [
-	{
+  {
 		id: 1,
+		title: "Lines",
+		year: "Spring ",
+		quote: `Soon, it was more about where on earth could the keys have fallen
+Maybe they fell with my jeans?
+Were they get pushed down along with my chest?`,
+		content: `I am unsure about what was more intense
+The weight of our worries or the one of our wants
+Soon, it was more about where on earth could the keys have fallen
+Maybe they fell with my jeans?
+Were they pushed down along with my chest?
+Or where they in the back? 
+Trying to hide in between the bags
+
+They could not be by the river
+Only I had fallen by the river
+Well, more like pushed into it
+Swinged around in between our push backs and laughs
+
+It's a very thin line, you know?
+The one between joking and acting like brats
+Crossing from tickles to grabs
+Hands to arms
+Hugs to chokes
+From the air to the ground
+
+From reason to desire
+
+We didn't see it coming
+Or maybe we tried not to see it
+How every cm we crossed over that line would take any part of rational I had left in me
+Any part of pride I could hold,
+Ending up holding my breath
+He holding my neck
+
+Regardless, we eventually found the keys
+Right in between the seats
+Plain, easy to see
+Is it just that we did not want to see?
+
+In real life we had to play dumb
+But here? Maybe we could just not see
+Here we had guardians, that we could see
+The mountains and rivers promised a safe space
+An unreal one, at least
+
+Just as unreal as the reflection of the sun in the painted design of my jeans 
+Spread against the window, sometimes on the back seat
+Just like his hands, switching places all over my skin
+A shitty solution for a fun problem, I thought
+Like the problem of driving without pants
+Or shoes
+But with a soundstrack and a sunset
+Truly, they had given me such a view, 
+what else could have they gifted?
+
+The version of me with this present could not complain
+But real me? I guess they had a different reality to deal with
+One with hurt feelings 
+With doubts, with problems
+
+I had to ask, though
+"If there were none... What would you do?"
+Don't expect a real answer
+Keep driving
+
+He had to ask, though
+"If there were none... How, when?"
+Shoud I give a real answer?
+Would it be wise? Parking outside of our guardians fantasy land
+
+"I would..."
+"If there were none..."
+"Now, I mean..."
+I mean, what wouldn't I do?
+"Yes?"
+No, it wouldn't be wise
+He grabbing me by my hair was also not wise but...
+"Answer when I talk"
+
+Plenty other things weren't wise that day
+He taking down the zipper of my shirt to the rhythm of the music surely wasn't
+Playing the "who is this harder for?" game wasn't better
+Not touching but whispering, growling...
+Ye, that wasn't our brightest moment either
+
+In truth, reality did not seemed faced by our actions
+Way less by the infinite sea of intentions that activated them
+However, one last night we had
+And with it no resolution, only frustration
+Too much tempting, needed more doing
+Actually, could it ever become just doing?
+Could we go back to our fantasy?
+Could we let it be reality?`,
+	},
+	{
+		id: 2,
 		title: "Harder than any rollercoaster",
 		year: "winter ",
 		quote: `Harder than any rollercoaster
@@ -196,7 +292,7 @@ I force myself to smile
 While the rest of me is crushed to pieces along with my heart`,
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Bolas, arterias y hebras",
 		year: "summer",
 		quote: `Sí, ya lo sabía desde el principio
@@ -252,7 +348,7 @@ Aunque más no pueda
 Aunque al final del día, yo sola tenga que cortar la bola, arterias y hebras`,
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "A View Far Away from my Jazz",
 		year: "Summer",
 		quote: `An unbothered vals our steps make through the city
@@ -302,7 +398,7 @@ Hardly breathing only at the sight of your vals
 Parting into the night far, far away from my jazz?`,
 	},
   {
-		id: 4,
+		id: 5,
 		title: "Sleep in your Arms",
 		year: "Autumn",
 		quote: `I've never liked sleep
