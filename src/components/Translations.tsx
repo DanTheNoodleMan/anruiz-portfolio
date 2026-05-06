@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import SectionHeader from "./SectionHeader";
-import { BookCover } from "../assets/svgs/BookCovers";
+// import { BookCover } from "../assets/svgs/BookCovers";
 import { books, type Book } from "../data/content";
 
 function BookCard({ book, index }: { book: Book; index: number }) {
@@ -15,7 +15,7 @@ function BookCard({ book, index }: { book: Book; index: number }) {
 			<a href={book.url || "#"} target="_blank" rel="noopener noreferrer" className="group flex flex-col h-full cursor-pointer">
 				{/* Cover with subtle lift and shadow expansion on hover */}
 				<div className="aspect-[2/3] rounded-sm overflow-hidden mb-5 shadow-[4px_5px_16px_rgba(26,23,20,0.14),1px_1px_0_rgba(26,23,20,0.07)] transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[6px_8px_20px_rgba(26,23,20,0.2)]">
-					<BookCover variant={book.coverVariant} />
+					{/* <BookCover variant={book.coverVariant} /> */}
 				</div>
 
 				{/* Info wrapper: using flex-grow to push quotes to the bottom evenly if titles vary in height */}

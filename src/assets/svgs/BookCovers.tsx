@@ -1,4 +1,4 @@
-import type { Book } from '../data/content'
+// import type { Book } from '../data/content'
 
 function NavyCover() {
   return (
@@ -100,14 +100,14 @@ function ForestCover() {
   )
 }
 
-const COVER_MAP: Record<Book['coverVariant'], React.ComponentType> = {
-  navy:   NavyCover,
-  rose:   RoseCover,
-  amber:  AmberCover,
-  forest: ForestCover,
-}
+// const COVER_MAP: Record<Book['coverVariant'], React.ComponentType> = {
+//   navy:   NavyCover,
+//   rose:   RoseCover,
+//   amber:  AmberCover,
+//   forest: ForestCover,
+// }
 
-export function BookCover({ variant }: { variant: Book['coverVariant'] }) {
-  const Cover = COVER_MAP[variant]
-  return <Cover />
-}
+// export function BookCover({ variant }: { variant: Book['coverVariant'] }) {
+//   const Cover = COVER_MAP[variant]
+//   return <Cover />
+// }
